@@ -17,20 +17,36 @@ class App extends Component {
   }
 
   componentDidMount() {
+
     this.setState(() => (
       { 
         age: 1 ,
         hunger: 10
       }
     ))
+
+    setInterval(this.tick, 1000);
+  }
+
+  componentWillUnmount() {
+    
+    clearInterval(this.tick)
+  }
+
+  tick() {
+
+    console.log('titties');
   }
 
   feed() {
+
     console.log('feed');
   }
 
   clean() {
+
     console.log('clean');
+    clearInterval(this.tick);
   }
 
   render() {
@@ -45,7 +61,6 @@ class App extends Component {
 }
 
 export default App;
-
 
 const Container = styled.section`
   margin: auto;
